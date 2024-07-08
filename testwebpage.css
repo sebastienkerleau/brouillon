@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+}
+
+#topText, #bottomText {
+    margin-bottom: 20px; /* Adjust the space between text blocks and circle as needed */
+    text-align: center;  /* Center the text */
+}
+
+.circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 20px 0; /* Add some margin to create space between the circle and text blocks */
+}
+
+.radius {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background-color: black;
+    top: 0;
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.radius::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid black;
+    top: -12px; /* Adjusted to position arrowhead correctly */
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+#output div {
+    margin-bottom: 5px; /* Adjust spacing between lines if needed */
+}
