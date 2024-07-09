@@ -107,15 +107,25 @@ circles.forEach((circle, circleIndex) => {
                                     (b + 3.04 < d && d < b + 3.24);
 
             // Check for "Positive basis of size three !" condition
-            if (!isPositiveBasis && cosineValue > 0.001) {
-                if ((a <= b && b <= a + 0.02) || (b <= c && c <= b + 0.02) || (c <= d && d <= c + 0.02)) {
-                    document.getElementById('pssStatus').innerHTML = "Positive basis of size three !";
+            if (!isPositiveBasis && cosineValue > 0) {
+                if ((a <= b && b <= a + 0.05) || (b <= c && c <= b + 0.05) || (c <= d && d <= c + 0.05)) {
+                    document.getElementById('pssStatus').innerHTML = "Positive basis <br> of size three !";
+                    if (cosineValue > 0.48) {
+                        document.getElementById('pssStatus').innerHTML = "Best positive basis <br> of size three !";
+                    }
                 } else {
                     document.getElementById('pssStatus').textContent = "PSS";
                 }
             } else {
                 // Display positive basis or PSS status
-                document.getElementById('pssStatus').textContent = isPositiveBasis ? "positive basis" : "not PSS";
+                if (isPositiveBasis) {
+                    document.getElementById('pssStatus').textContent = "positive basis";
+                    if (cosineValue > 0.7) {
+                        document.getElementById('pssStatus').textContent = "Best positive basis !";
+                    }
+                } else {
+                    document.getElementById('pssStatus').textContent = "not PSS";
+                }
             }
         }
 
