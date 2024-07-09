@@ -133,11 +133,3 @@ circles.forEach((circle, circleIndex) => {
         updateDisplay();
     });
 });
-
-
-
-
-
-
-
-
